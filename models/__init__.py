@@ -58,3 +58,9 @@ class SurveyResponse(Model):
         return self.answers.get(key, default)
 
 
+class Page(Model):
+    key = Field()
+    contents = Field()
+    tags = Field()
+
+
