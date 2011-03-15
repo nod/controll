@@ -11,12 +11,12 @@ import tornado.web
 
 from mogo import connect
 
-from views import routes
+import views
 
 def start_instance(settings):
     settings.mogo_connection = connect('pytx')
 
-    app = tornado.web.Application(routes, **settings)
+    app = tornado.web.Application(views.routes, **settings)
     logging.info("starting app at port", settings['httpd_port'])
 
     http_server = tornado.httpserver.HTTPServer(app)
@@ -61,7 +61,7 @@ def main():
     (options, args) = parser.parse_args()
 
     if options.routes:
-        L = max( len(r.reverse()) for r in routes ) # len of longest path
+        L = max( len(r.reverse()) for r in views.routes ) # len of longest path
         fmt_ = "    %%-%ds => %%s" % L
         for r in routes:
             print fmt_ % (r.reverse(), ".".join((
