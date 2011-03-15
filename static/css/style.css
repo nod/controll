@@ -191,3 +191,8 @@ input.submit {
     -webkit-box-shadow: 1px 1px 1px #1a2f3a;
     -moz-box-shadow: 1px 1px 1px #1a2f3a;
 }
+
+p {
+    margin-bottom: 15px;
+    line-height: 140%;
+}
