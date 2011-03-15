@@ -11,8 +11,10 @@ class User(Model):
     caste = Field()
 
     def survey_results(self, surveykey):
-        s_ = Survey.search(key=surveykey).first()
-        return SurveyResponse.search(user=self, survey=s_).first()
+        return SurveyResponse.search(
+            user=self,
+            surveykey=surveykey
+            ).first()
 
 
 class Event(Model):
@@ -48,7 +50,7 @@ class Survey(Model):
 
 class SurveyResponse(Model):
 
-    survey = ReferenceField(Survey)
+    surveykey = Field()
     user = ReferenceField(User)
     answers = Field()
 
