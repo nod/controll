@@ -11,6 +11,7 @@ import user
 import auth
 import index
 import survey
+import admin
 
 
 # must come last, after all views are imported.

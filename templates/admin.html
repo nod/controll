@@ -1,0 +1,17 @@
+{% include header.html %}
+
+
+<h1>Attendees</h1>
+{% for a in attendees %}
+
+<div>
+<a href="/admin/user/{{ a.key }}">{{ a.name }}</a>
+</div>
+
+{% end %}
+
+
+
+
+
+{% include footer.html %}

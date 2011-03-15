@@ -1,0 +1,17 @@
+{% include header.html %}
+
+<a href="/admin">back to admin</a>
+
+<h2>{{ user.name }}</h2>
+{% for s in surveys %}
+<div>
+<h3> {{ Survey.search(key=s.surveykey).first().title }} </h3>
+<ul>
+{% for k,v in s.answers.iteritems() %}
+<li> {{k}} : {{v}} </li>
+{% end %}
+</ul>
+</div>
+{% end %}
+
+{% include footer.html %}
