@@ -1,7 +1,15 @@
 {% include header.html %}
 
+<h3> shirts </h3>
 
-<h1>Attendees</h1>
+<ul>
+{% for k in shirts %}
+<li> {{k}} {{shirts[k]}} </li>
+{% end %}
+</ul>
+
+
+<h3>Attendees</h3>
 {% for a in attendees %}
 
 <div>
@@ -9,8 +17,6 @@
 </div>
 
 {% end %}
-
-
 
 
 
