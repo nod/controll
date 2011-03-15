@@ -1,0 +1,51 @@
+{% include header.html %}
+
+<h3>Registration Form</h3>
+<form>
+
+    <ul class="form-list">
+
+        <li class="form-entry text">
+            <label for="email">Email</label>
+            <div class="input">
+                <input type="text" name="email" class="text"/>
+            </div>
+        </li>
+
+        
+        <li class="form-entry radio">
+            <label for="t-shirt">T-Shirt Size</label>
+            <ul class="input">
+                <li>
+                    <input type="radio" name="tshirtsize" value="large"/>
+                    <span class="radio-label">Large</span>
+                </li>
+                <li>
+                    <input type="radio" name="tshirtsize" value="large"/>
+                    <span class="radio-label">Medium</span>
+                </li>
+                <li>
+                    <input type="radio" name="tshirtsize" value="large"/>
+                    <span class="radio-label">Small</span>
+                </li>
+            </ul>
+        </li>
+
+        
+        <li class="form-entry checkbox">
+            <label for="human">Are you human?</label>
+            <div class="input">
+                <input type="checkbox" name="human" class="tcheckbox"/>
+            </div>
+        </li>
+
+    </ul>
+
+    <input class="submit" type="submit" value="Save"/>
+
+
+</form>
+
+
+
+{% include footer.html %}

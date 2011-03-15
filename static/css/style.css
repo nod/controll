@@ -26,12 +26,13 @@ body {
     background-position: top left;
     background-repeat: repeat-x;
     font-family: "Copse", "Verdana", sans-serif;
-    font-size: 20px;
+    font-size: 22px;
+    color: #b0b0b0;
     text-shadow: 1px 1px 0px #1a2f3a;
 }
 
 .header, .content, .footer {
-    width: 980px;
+    width: 780px;
     margin: 0 auto;
 }
 
@@ -43,30 +44,32 @@ body {
 
 .content {
     border-top: 1px solid #557a8e;
+    padding-top: 25px;
 }
 
 h1, h2, h3, h4 {
+    color: #ffa320;
+    margin: 0;
+    text-align: center;
     font-family: "Ubuntu", "Lucida Grande", "Verdana", sans-serif;
 }
 
 h1 {
+    text-align: left;
     font-size: 72px;
     font-weight: bold;
     margin: 0 0 5px;
     padding: 0;
     line-height: 96px;
     color: #ffa320;
-    text-align: center;
     text-shadow: 1px 2px 1px #1a2f3a;
 }
 
 p.header-subtitle {
     font-size: 20px;
     color: #FFF;
-    letter-spacing: 2px;
     font-family: "Ubuntu", "Lucida Grande", "Verdana", sans-serif;
     text-transform: uppercase;
-    text-align: center;
 }
 
 .white {
@@ -75,9 +78,16 @@ p.header-subtitle {
 
 .header .user-box {
     float: right;
-    margin-top: -100px;
-    text-align: right;
+    margin-top: -110px;
+    text-align: center;
     color: #FFF;
+    width: 220px;
+    background: #1a2f3a;
+    padding: 10px;
+    border-radius: 10px;
+    border-bottom: 1px solid #557a8e;
+    font-size: 18px;
+
 }
 
 a {
@@ -88,3 +98,82 @@ a {
     a:hover {
         text-decoration: underline;
     }
+
+h3 {
+    margin-bottom: 25px;
+}
+
+.form-body {
+    background: url("/static/images/form_bg.png") top center repeat-y;
+    display: block;
+    overflow: auto;
+}
+
+ul.form-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    background: url("/static/images/form_bg.png") top center repeat-y;
+}
+
+    ul.form-list li.form-entry {
+        padding: 15px 10px;
+        line-height: 32px;
+        clear: both;
+        overflow: auto;
+    }
+
+        ul.form-list li.form-entry:first-child {
+            border-top: none;
+        }
+
+    ul.form-list li.radio ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+ul.form-list li label {
+    display: block;
+    float: left;
+    width: 360px;
+    padding-right: 20px;
+    text-align: right;
+    color: #ffa320;
+}
+
+ul.form-list li.form-entry .input {
+    display: block;
+    float: left;
+    width: 300px;
+    padding-left: 20px;
+}
+
+input.text {
+    background: #FFF;
+    border: none;
+    padding: 0 5px;
+    color: #1a2f3a;
+    border-radius: 5px;
+    line-height: 32px;
+    font-family: "Copse", "Verdana", sans-serif;
+    font-size: 22px;
+}
+
+input.submit {
+    background: #ffa320;
+    border-radius: 5px;
+    padding: 5px;
+    line-height: 32px;
+    font-size: 24px;
+    display: block;
+    width: 200px;
+    margin: 20px auto;
+    border: none;
+    color: #000;
+    text-shadow: 1px 1px 0 #FFF;
+    cursor: pointer;
+    font-family: "Copse", "Verdana", sans-serif;
+    -webkit-box-shadow: 1px 1px 1px #1a2f3a;
+    -moz-box-shadow: 1px 1px 1px #1a2f3a;
+}

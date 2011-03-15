@@ -1,7 +1,7 @@
 from tornado_addons.route import route
 
 from base import BaseHandler
-
+from survey import SurveyHandler
 
 import index
 
