@@ -49,7 +49,7 @@ body {
 
 h1, h2, h3, h4 {
     color: #ffa320;
-    margin: 0;
+    margin: 0 0 20px;
     text-align: center;
     font-family: "Ubuntu", "Lucida Grande", "Verdana", sans-serif;
 }
@@ -192,7 +192,7 @@ input.submit {
     -moz-box-shadow: 1px 1px 1px #1a2f3a;
 }
 
-p {
-    margin-bottom: 15px;
-    line-height: 140%;
+.content p {
+    margin: 12px;
+    line-height: 28px;
 }
