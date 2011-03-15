@@ -5,4 +5,4 @@ from . import BaseHandler, route
 class Index(BaseHandler):
 
     def get(self):
-        self.write('conTROLL')
+        self.render("index.html")
