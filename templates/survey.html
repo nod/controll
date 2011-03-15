@@ -1,8 +1,8 @@
 {% include header.html %}
 
 <h3>Registration Form</h3>
-<form>
-
+<form action="/survey/{{ survey.key }}" method="POST">
+    {{ xsrf_form_html() }}
     <ul class="form-list">
         {% for question in survey.questions %}
         {% if question.get('key') %}
@@ -11,14 +11,14 @@
                 <div class="input">
                 {% if question.get('formtype', 'text') == 'text' %}
 
-                    <input type="text" name="email" class="text"/>
+                    <input type="text" name="{{ question['key'] }}" class="text" {% if response and response.answer(question['key']) %} value="{{ response.answer(question['key']) }}"{% end if %}/>
 
                 {% elif question.get('formtype') == 'radio' and question.get('options') %}
 
                     <ul>
                         {% for option in question.get('options', []) %}
                         <li>
-                            <input type="radio" name="{{ question['key'] }}" value="{{ option[0] }}"/>
+                            <input type="radio" name="{{ question['key'] }}" value="{{ option[0] }}" {% if response and response.answer(question['key']) == option[0] %}checked="checked"{% end if %}/>
                             <span class="radio-label">{{ option[1] }}</span>
                         </li>
                         {% end for %}
@@ -26,46 +26,11 @@
         
                 {% elif question.get('formtype') == 'checkbox' %}
 
-                    <input type="checkbox" name="{{ question['key'] }}" class="checkbox"/>
+                    <input type="checkbox" name="{{ question['key'] }}" class="checkbox" {% if response and response.answer(question['key']) == option[0] %}checked="checked"{% end if %}/>
 
                 {% end if %}
                 </div>
             </li>
-        <!--
-        <li class="form-entry text">
-            <label for="email">Email</label>
-            <div class="input">
-                <input type="text" name="email" class="text"/>
-            </div>
-        </li>
-
-        
-        <li class="form-entry radio">
-            <label for="t-shirt">T-Shirt Size</label>
-            <ul class="input">
-                <li>
-                    <input type="radio" name="tshirtsize" value="large"/>
-                    <span class="radio-label">Large</span>
-                </li>
-                <li>
-                    <input type="radio" name="tshirtsize" value="large"/>
-                    <span class="radio-label">Medium</span>
-                </li>
-                <li>
-                    <input type="radio" name="tshirtsize" value="large"/>
-                    <span class="radio-label">Small</span>
-                </li>
-            </ul>
-        </li>
-
-        
-        <li class="form-entry checkbox">
-            <label for="human">Are you human?</label>
-            <div class="input">
-                <input type="checkbox" name="human" class="tcheckbox"/>
-            </div>
-        </li>
-        -->
         {% end if %}
         {% end for %}
     </ul>

@@ -54,4 +54,7 @@ class SurveyResponse(Model):
     user = ReferenceField(User)
     answers = Field()
 
+    def answer(self, key, default=None):
+        return self.answers.get(key, default)
+
 
