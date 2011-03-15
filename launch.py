@@ -16,7 +16,7 @@ def start_instance(settings):
     logging.info("starting app at port", settings['httpd_port'])
 
     http_server = tornado.httpserver.HTTPServer(app)
-    http_server.listen(settings.httpd_port)
+    http_server.listen(settings.httpd_port, address='127.0.0.1')
 
     try: tornado.ioloop.IOLoop.instance().start()
     except KeyboardInterrupt: pass
