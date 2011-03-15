@@ -1,4 +1,4 @@
-from mogo import Model, Field, connect, ReferenceField
+from mogo import Model, Field, ReferenceField
 
 
 class User(Model):
