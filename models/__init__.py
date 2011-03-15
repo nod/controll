@@ -5,6 +5,7 @@ class User(Model):
 
     key = Field()
     name = Field()
+    email = Field()
     created_at = Field()
     access_token = Field()
     caste = Field()
