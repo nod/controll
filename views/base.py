@@ -8,11 +8,12 @@ class BaseHandler(tornado.web.RequestHandler):
             self.application._event = None
             ""  # GET EVENT DATA AND MAKE A MODEL
 
-        return super(type(self)).render_string(
+        kwa.setdefault('_event', self.application._event)
+        return tornado.web.RequestHandler.render_string(
             self,
             template,
-            event = self.application._event,
-            **kwa )
+            **kwa
+        )
 
     def clear_current_user(self):
         self.set_secure_cookie(
