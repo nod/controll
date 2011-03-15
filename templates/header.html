@@ -11,21 +11,12 @@
             <p class="header-subtitle">September 5 @Texas A&amp;M</p>
 
             <div class="user-box">
-                {% if True %}
+                {% if current_user %}
                 <p class="name">Howdy, Username</p>
                 <p><a href="/session/destroy">Sign Out</a></p>
                 {% else %}
-                <p>Register with:</p>
-                <p>
-                    <a href="/session/twitter">
-                        <img src="/static/images/twitter_login.png" alt="Twitter"/>
-                    </a>
-                </p>
-                <p>
-                    <a href="/session/facebook">
-                        <img src="/static/images/facebook_login.png" alt="Twitter"/>
-                    </a>
-                </p>
+                <p class="name">Howdy, Stranger</p>
+                <p><a href="/login">Register / Login</a></p>
                 {% end %}
             </div>
 
