@@ -2,6 +2,7 @@ from . import BaseHandler, route
 from . import models
 from tornado.web import HTTPError, authenticated
 
+
 @route('/survey/([a-z0-9\-_]+)', name="survey")
 class SurveyHandler(BaseHandler):
 

@@ -8,7 +8,6 @@ import tornado.auth
 
 from . import route, BaseHandler, models
 
-
 @route('/welcome/?')
 class Welcome(BaseHandler):
     @tornado.web.authenticated
@@ -25,7 +24,7 @@ class NewUserMixin(tornado.web.RequestHandler):
         user.access_token = access_token
         user.save()
         self.set_current_user(user)
-        self.redirect('/welcome')
+        self.redirect('/survey/pytx11reg')
 
 
 @route('/session/destroy/?')
