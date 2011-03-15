@@ -1,10 +1,9 @@
+from . import models
 
-
-
-registration = Survey(
+registration = models.Survey(
     key = 'pytx11reg',
     title = 'PyTX11 Registration',
-    questions = {
+    questions = [
         dict(
             title='Are you attending?',
             formtype='radio',
@@ -17,8 +16,9 @@ registration = Survey(
             options=[('teacher', 'Teacher'), ('learner','Learner')],
             key='pyexp',
             ),
-        }
+        ]
     )
 
+survey_list = [registration,]
 
 

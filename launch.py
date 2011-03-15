@@ -12,9 +12,17 @@ import tornado.web
 from mogo import connect
 
 import views
+from views.survey_definitions import survey_list
 
 def start_instance(settings):
     settings.mogo_connection = connect('pytx')
+
+    # updating the surveys
+    for survey in survey_list:
+        existing = survey.__class__.search(key=survey.key).first()
+        if existing:
+            existing.delete()
+        survey.save()
 
     app = tornado.web.Application(views.routes, **settings)
     logging.info("starting app at port", settings['httpd_port'])
