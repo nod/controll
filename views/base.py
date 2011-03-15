@@ -4,7 +4,8 @@ class BaseHandler(tornado.web.RequestHandler):
 
     def render_string(self, template, **kwa):
 
-        if not self.application._event:
+        if not hasattr('_event', self.application):
+            self.application._event = None
             ""  # GET EVENT DATA AND MAKE A MODEL
 
         return super(type(self)).render_string(
