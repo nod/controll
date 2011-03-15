@@ -1,5 +1,7 @@
+import json
 from pymongo.objectid import ObjectId
 
+from . import models
 
 import tornado.web
 class BaseHandler(tornado.web.RequestHandler):
@@ -34,11 +36,8 @@ class BaseHandler(tornado.web.RequestHandler):
 
     def get_current_user(self):
         # just the user _id
-        try:
-            u_ = json.loads(self.get_secure_cookie('authed_user'))
-            return User.grab(ObjectId(u_['user']))
-        except:
-            return
+        u_ = json.loads(self.get_secure_cookie('authed_user'))
+        return models.User.grab(ObjectId(u_['user']))
 
     def _handle_request_exception(self, e):
         tornado.web.RequestHandler._handle_request_exception(self,e)

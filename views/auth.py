@@ -56,7 +56,7 @@ class TwitterHandler(BaseHandler, NewUserMixin, tornado.auth.TwitterMixin):
         self.user_d = user_d # save this for later
         uid = 'twit:%s' % (user_d['screen_name'])
 
-        u_ = User.search(key=uid).first()
+        u_ = models.User.search(key=uid).first()
         if u_:
             self.set_current_user(u_)
             u_.access_token = json.dumps(self.user_d['access_token'])
@@ -100,7 +100,7 @@ class FacebookHandler(BaseHandler, NewUserMixin, tornado.auth.FacebookGraphMixin
     def _on_login(self, user):
         uid = 'facebook::%s' % user['id']
         if u_:
-            user_ = User(**u_)
+            user_ = models.User(**u_)
             user_.access_token = user['access_token']
             user_.facebook_id = user['id']
             user_.save()

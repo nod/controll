@@ -23,10 +23,11 @@ settings_ = dict(
 
     )
 # pull in our local overrides
-try:
+if 1:
     from settings_local import settings_ as settings_local
     settings_.update(settings_local)
-except ImportError: pass
+
+# except ImportError: pass
 
 # lastly, create our settings object
 settings = _O(settings_)
