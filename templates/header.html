@@ -12,7 +12,7 @@
 
             <div class="user-box">
                 {% if current_user %}
-                <p class="name">Howdy, Username</p>
+                <p class="name">Howdy, {{ current_user.name.split()[0] }}</p>
                 <p><a href="/session/destroy">Sign Out</a></p>
                 {% else %}
                 <p class="name">Howdy, Stranger</p>
