@@ -10,6 +10,10 @@ class User(Model):
     access_token = Field()
     caste = Field()
 
+    def survey_results(self, surveykey):
+        s_ = Survey.search(key=surveykey).first()
+        return SurveyResponse.search(user=self, survey=s_).first()
+
 
 class Event(Model):
 

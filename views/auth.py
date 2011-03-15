@@ -98,7 +98,7 @@ class FacebookHandler(BaseHandler, NewUserMixin, tornado.auth.FacebookGraphMixin
             extra_params={"scope": "user_about_me,publish_stream"} )
 
     def _on_login(self, user):
-        uid = 'facebook::%s' % user['id']
+        uid = 'fb:%s' % user['id']
         if u_:
             user_ = models.User(**u_)
             user_.access_token = user['access_token']
