@@ -36,8 +36,11 @@ class BaseHandler(tornado.web.RequestHandler):
 
     def get_current_user(self):
         # just the user _id
-        u_ = json.loads(self.get_secure_cookie('authed_user'))
-        return models.User.grab(ObjectId(u_['user']))
+        try:
+            u_ = json.loads(self.get_secure_cookie('authed_user'))
+            return models.User.grab(ObjectId(u_['user']))
+        except ValueError:
+            return None
 
     def _handle_request_exception(self, e):
         tornado.web.RequestHandler._handle_request_exception(self,e)
