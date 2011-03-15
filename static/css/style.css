@@ -1,0 +1,90 @@
+/* clear settings */
+window, body, p {
+    margin: 0;
+    padding: 0;
+}
+
+@font-face {
+	font-family: 'Ubuntu';
+    src: local('Ubuntu'), url('/static/fonts/Ubuntu-R.ttf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Copse';
+    src: url('/static/fonts/Copse-Regular.ttf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #2d5063;
+    background-image: url("/static/images/body_bg.png");
+    background-position: top left;
+    background-repeat: repeat-x;
+    font-family: "Copse", "Verdana", sans-serif;
+    font-size: 20px;
+    text-shadow: 1px 1px 0px #1a2f3a;
+}
+
+.header, .content, .footer {
+    width: 980px;
+    margin: 0 auto;
+}
+
+.header {
+    margin-top: 25px;
+    border-bottom: 1px solid #1a2f3a;
+    padding-bottom: 25px;
+}
+
+.content {
+    border-top: 1px solid #557a8e;
+}
+
+h1, h2, h3, h4 {
+    font-family: "Ubuntu", "Lucida Grande", "Verdana", sans-serif;
+}
+
+h1 {
+    font-size: 72px;
+    font-weight: bold;
+    margin: 0 0 5px;
+    padding: 0;
+    line-height: 96px;
+    color: #ffa320;
+    text-align: center;
+    text-shadow: 1px 2px 1px #1a2f3a;
+}
+
+p.header-subtitle {
+    font-size: 20px;
+    color: #FFF;
+    letter-spacing: 2px;
+    font-family: "Ubuntu", "Lucida Grande", "Verdana", sans-serif;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.white {
+    color: #FFFFFF;
+}
+
+.header .user-box {
+    float: right;
+    margin-top: -100px;
+    text-align: right;
+    color: #FFF;
+}
+
+a {
+    color: #ffa320;
+    text-decoration: none;
+}
+
+    a:hover {
+        text-decoration: underline;
+    }
