@@ -39,7 +39,7 @@ class BaseHandler(tornado.web.RequestHandler):
         try:
             u_ = json.loads(self.get_secure_cookie('authed_user'))
             return models.User.grab(ObjectId(u_['user']))
-        except ValueError:
+        except:
             return None
 
     def _handle_request_exception(self, e):
