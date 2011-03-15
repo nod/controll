@@ -8,6 +8,7 @@ import tornado.auth
 
 from . import route, BaseHandler, models
 
+from survey import mandate_survey
 
 @route('/welcome/?')
 class Welcome(BaseHandler):
@@ -25,7 +26,7 @@ class NewUserMixin(tornado.web.RequestHandler):
         user.access_token = access_token
         user.save()
         self.set_current_user(user)
-        self.redirect('/welcome')
+        self.redirect('/survey/pytx11reg')
 
 
 @route('/session/destroy/?')
