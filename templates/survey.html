@@ -4,7 +4,34 @@
 <form>
 
     <ul class="form-list">
+        {% for question in survey.questions %}
+        {% if question.get('key') %}
+            <li class="form-entry {{ question.get('formtype', '') }}">
+                <label for="{{ question['key'] }}">{{ question.get('title', question['key']) }}</label>
+                <div class="input">
+                {% if question.get('formtype', 'text') == 'text' %}
 
+                    <input type="text" name="email" class="text"/>
+
+                {% elif question.get('formtype') == 'radio' and question.get('options') %}
+
+                    <ul>
+                        {% for option in question.get('options', []) %}
+                        <li>
+                            <input type="radio" name="{{ question['key'] }}" value="{{ option[0] }}"/>
+                            <span class="radio-label">{{ option[1] }}</span>
+                        </li>
+                        {% end for %}
+                    </ul>
+        
+                {% elif question.get('formtype') == 'checkbox' %}
+
+                    <input type="checkbox" name="{{ question['key'] }}" class="checkbox"/>
+
+                {% end if %}
+                </div>
+            </li>
+        <!--
         <li class="form-entry text">
             <label for="email">Email</label>
             <div class="input">
@@ -38,11 +65,11 @@
                 <input type="checkbox" name="human" class="tcheckbox"/>
             </div>
         </li>
-
+        -->
+        {% end if %}
+        {% end for %}
     </ul>
-
     <input class="submit" type="submit" value="Save"/>
-
 
 </form>
 

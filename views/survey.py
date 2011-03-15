@@ -5,6 +5,7 @@ from tornado.web import HTTPError, authenticated
 @route('/survey/([a-z0-9\-_]+)', name="survey")
 class SurveyHandler(BaseHandler):
 
+    @authenticated
     def get(self, survey_key):
         survey = models.Survey.search(key=survey_key).first()
         if not survey:
