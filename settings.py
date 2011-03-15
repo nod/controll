@@ -24,7 +24,7 @@ settings_ = dict(
     )
 # pull in our local overrides
 try:
-    from settings_local import settings as settings_local
+    from settings_local import settings_ as settings_local
     settings_.update(settings_local)
 except ImportError: pass
 
