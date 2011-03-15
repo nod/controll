@@ -13,8 +13,8 @@ settings_ = dict(
     static_path = path.join(path.dirname(__file__), "static"),
     template_path = path.join(path.dirname(__file__), "templates"),
 
-    twitter_consumer_key = '',
-    twitter_consumer_secret = '',
+    twitter_consumer_key = 'cDM0snp8FEaOdr5Ii4IOg',
+    twitter_consumer_secret = 'rIumSmLk4dmBpCAa9IZmEO9HnKnOlLeL9BH9Qc5CI',
 
     facebook_api_key = '',
     facebook_secret = '',
