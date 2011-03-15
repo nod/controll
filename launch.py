@@ -9,9 +9,13 @@ import tornado.httpserver
 import tornado.ioloop
 import tornado.web
 
+from mogo import connect
+
 from views import routes
 
 def start_instance(settings):
+    settings.mogo_connection = connect('pytx')
+
     app = tornado.web.Application(routes, **settings)
     logging.info("starting app at port", settings['httpd_port'])
 
