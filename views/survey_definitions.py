@@ -40,38 +40,39 @@ optional = models.Survey(
         dict(
             title='How experienced with Python are you?',
             formtype='radio',
-            options=[('teacher', 'Teacher'), ('learner','Learner')],
+            options=[('learner','Learner'), ('teacher', 'Teacher')],
             key='pyexp',
             ),
         dict(
-            title=':15 ',
+            title='How much experience do you have coding other than Python?',
             formtype='radio',
-            options=[('yes','Yes'), ('maybe', 'Maybe')],
-            key='attending',
+            options=[('little','A little'), ('lot', 'A lot')],
+            key='codeother',
             ),
         dict(
-            title='How experienced with Python are you?',
+            title='Are you interested in staying for a code sprint the next day?',
             formtype='radio',
-            options=[('teacher', 'Teacher'), ('learner','Learner')],
-            key='pyexp',
+            options=[('yes','Yes'), ('no', 'No')],
+            key='sprint',
             ),
+
+
         dict(
-            title="What's your email address?",
-            formtype='text',
-            key='email',
-            ),
-        dict(
-            title='What size shirt?',
+            title='Willing to help setup?',
             formtype='radio',
-            options=[('small', 'Small'), ('med','Medium'),
-                ('large','Large'), ('xlarge', 'X-Large'),
-                ('xxl', 'XX-Large'),
-                ],
-            key='shirt',
+            options=[('yes','Yes'), ('no', 'No')],
+            key='setup',
+            ),
+
+        dict(
+            title="Willing to drive others?",
+            formtype='radio',
+            options=[('yes','Yes'), ('no', 'No')],
+            key='drive',
             ),
         ]
     )
 
-survey_list = [registration,]
+survey_list = [registration, optional]
 
 

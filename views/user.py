@@ -2,8 +2,6 @@ import tornado.web
 
 from . import route, BaseHandler, models
 
-from survey import mandate_survey
-
 @route('/me/?', name="me")
 class Me(BaseHandler):
 
@@ -11,7 +9,7 @@ class Me(BaseHandler):
     def get(self):
 
         surveykey='pytx11reg'
-        if mandate_survey(self.current_user, surveykey):
+        if not self.current_user.survey_results(surveykey):
             self.redirect('/survey/' + surveykey)
             return
 

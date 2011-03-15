@@ -8,8 +8,6 @@ import tornado.auth
 
 from . import route, BaseHandler, models
 
-from survey import mandate_survey
-
 @route('/welcome/?')
 class Welcome(BaseHandler):
     @tornado.web.authenticated

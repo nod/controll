@@ -3,14 +3,6 @@ from . import models
 from tornado.web import HTTPError, authenticated
 
 
-def mandate_survey(user, surveykey):
-    # make them register
-    reg_survey = user.survey_results(surveykey)
-    if not reg_survey: return True
-    return False
-
-
-
 @route('/survey/([a-z0-9\-_]+)', name="survey")
 class SurveyHandler(BaseHandler):
 
