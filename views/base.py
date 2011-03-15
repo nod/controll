@@ -1,3 +1,8 @@
+import json
+from pymongo.objectid import ObjectId
+
+from . import models
+
 import tornado.web
 class BaseHandler(tornado.web.RequestHandler):
 
@@ -25,7 +30,7 @@ class BaseHandler(tornado.web.RequestHandler):
         # just the user _id
         self.set_secure_cookie(
             'authed_user',
-            json.dumps({'user':user._id}),
+            json.dumps({'user':str(user.id)}),
             expires_days=3,
             )
 
@@ -33,20 +38,9 @@ class BaseHandler(tornado.web.RequestHandler):
         # just the user _id
         try:
             u_ = json.loads(self.get_secure_cookie('authed_user'))
-            return u_['user']
-        except:
-            return
-
-    @property
-    def authed_user(self):
-        if not self._authed_user:
-            # not cached, look it up in the database
-            self.authed_user = '' # XXX FROM DB D00D
-        return self._authed_user
-
-    @authed_user.setter
-    def authed_user(self, user):
-        self._authed_user = user
+            return models.User.grab(ObjectId(u_['user']))
+        except ValueError:
+            return None
 
     def _handle_request_exception(self, e):
         tornado.web.RequestHandler._handle_request_exception(self,e)
