@@ -196,3 +196,14 @@ input.submit {
     margin: 12px;
     line-height: 28px;
 }
+
+.little-box {
+    background: #1a2f3a;
+    padding: 20px;
+    width: 280px;
+    margin: 10px auto;
+    border-radius: 10px;
+    border-bottom: 1px solid #557a8e;
+    font-size: 18px;
+    text-align: center;
+}

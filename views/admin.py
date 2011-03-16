@@ -16,14 +16,24 @@ class Admin(BaseHandler):
         if self.current_user.key not in admins:
             self.render('oops.html', txt='bad dog. no donut.')
             return
-        attendees = models.User.find()
+
+        # we'll get this cursor once, so just pull it all into memory
+        attendees_ = models.User.find()
 
         shirts = {}
-        for a in attendees:
+        attendees = []
+        for a in attendees_:
+            attendees.append(a)
             s = a.survey_results('pytx11reg')
             shirts[s.answers['shirt']] = shirts.get(s.answers['shirt'],0) + 1
 
-        self.render('admin.html', attendees=attendees, shirts=shirts)
+        lbls = shirts.keys()
+        values = [str(shirts[x]) for x in lbls]
+        lbls = [ "%s+%0.0f%%" % (L, (shirts[L]/sum(shirts.values()))*100) for L in lbls]
+        shirt_url = "https://chart.googleapis.com/chart?cht=p3&chd=t:%s&chs=250x100&chl=%s&chf=bg,s,ffffff00&chdls=ffffff,12" % (
+            ",".join(values), "|".join(lbls) )
+
+        self.render('admin.html', attendees=attendees, shirt_url=shirt_url)
 
 
 @route('/admin/user/([:a-z0-9\-_]+)', name="admin-user")

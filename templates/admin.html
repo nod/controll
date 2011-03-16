@@ -1,21 +1,16 @@
 {% include header.html %}
 
+<div class="little-box">
 <h3> shirts </h3>
-
-<ul>
-{% for k in shirts %}
-<li> {{k}} {{shirts[k]}} </li>
-{% end %}
-</ul>
-
+<img src="{{ shirt_url }}" />
+<span style="font-size:50%;"> grossly ugly hack before i fall asleep. if you think this is ugly, you should see the code that made it</span>
+</div>
 
 <h3>Attendees</h3>
 {% for a in attendees %}
-
 <div>
 <a href="/admin/user/{{ a.key }}">{{ a.name }}</a>
 </div>
-
 {% end %}
 
 
