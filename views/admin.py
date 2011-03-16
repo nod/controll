@@ -30,10 +30,11 @@ class Admin(BaseHandler):
         lbls = shirts.keys()
         values = [str(shirts[x]) for x in lbls]
         lbls = [ "%s+%0.0f%%" % (L, (shirts[L]/sum(shirts.values()))*100) for L in lbls]
-        shirt_url = "https://chart.googleapis.com/chart?cht=p3&chd=t:%s&chs=250x100&chl=%s&chf=bg,s,ffffff00&chdls=ffffff,12" % (
-            ",".join(values), "|".join(lbls) )
-
-        self.render('admin.html', attendees=attendees, shirt_url=shirt_url)
+        charts = ( 
+            ('pytx11reg', 'attending'),
+            ('pxtx11reg','shirt'),
+            )
+        self.render('admin.html', attendees=attendees, charts=charts)
 
 
 @route('/admin/user/([:a-z0-9\-_]+)', name="admin-user")

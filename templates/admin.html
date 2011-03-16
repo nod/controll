@@ -1,10 +1,8 @@
 {% include header.html %}
 
-<div class="little-box">
-<h3> shirts </h3>
-<img src="{{ shirt_url }}" />
-<span style="font-size:50%;"> grossly ugly hack before i fall asleep. if you think this is ugly, you should see the code that made it</span>
-</div>
+{% for c in charts %}
+{{ modules.SurveyPie(*c) }}
+{% end %}
 
 <h3>Attendees</h3>
 {% for a in attendees %}

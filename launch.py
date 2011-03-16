@@ -12,10 +12,13 @@ import tornado.web
 from mogo import connect
 
 import views
+from views import uimodules
+
 from views.survey_definitions import survey_list
 
 def start_instance(settings):
     settings.mogo_connection = connect('pytx')
+    settings.ui_modules = uimodules
 
     # updating the surveys
     for survey in survey_list:
