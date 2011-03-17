@@ -4,10 +4,9 @@ from urllib import quote
 
 class SurveyPie(UIModule):
     def render(self, surveykey, answer):
-        col =  models.SurveyResponse._collection
         key = 'answers.%s'%answer
 
-        grouped = col.group(
+        grouped = models.SurveyResponse.group(
             key = { key : 1 },
             condition =  { },
             reduce = 'function(obj,prev) { prev.count += 1; }',

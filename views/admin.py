@@ -25,12 +25,13 @@ class Admin(BaseHandler):
         for a in attendees_:
             attendees.append(a)
             s = a.survey_results('pytx11reg')
-            shirts[s.answers['shirt']] = shirts.get(s.answers['shirt'],0) + 1
+            if 'shirt' in s.answers:
+                shirts[s.answers['shirt']] = shirts.get(s.answers['shirt'],0)+1
 
         lbls = shirts.keys()
         values = [str(shirts[x]) for x in lbls]
         lbls = [ "%s+%0.0f%%" % (L, (shirts[L]/sum(shirts.values()))*100) for L in lbls]
-        charts = ( 
+        charts = (
             ('pytx11reg', 'attending'),
             ('pxtx11reg','shirt'),
             )
