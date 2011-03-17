@@ -1,0 +1,37 @@
+{% include ../header.html %}
+
+<h3>Page List</h3>
+{% if error %}
+<p class="error">
+    {% if error == "page_exists" %}That page already exists.
+    {% elif error == "invalid_page_name" %}Page names must be lowercase alphanumeric.
+    {% end if %}
+</p>
+{% end if %}
+
+<p>
+    <form action="/admin/pages" method="POST">
+        {{ xsrf_form_html() }}
+        <b>New Page: </b><input type="text" class="text" name="new_page"/>
+        <input type="submit" class="submit inline" value="Go"/>
+    </form>
+</p>
+
+{% if pages.count() > 0 %}
+<ul>
+{% for page in pages %}
+    <li>
+        <b><a href="/admin/page/{{ page.key }}">{{ page.title }}</a></b>
+        - /page/{{ page.key }} 
+        (<a href="/page/{{ page.key }}">view</a> | 
+        <form action="/admin/page/{{ page.key }}/delete" id="page-delete-{{ page.key }}"method="POST" style="display: inline-block">
+            {{ xsrf_form_html() }}
+            <input type="hidden" name="delete_key" value="{{ page.key }}"/>
+            <a href="#" onclick="document.getElementById('page-delete-{{ page.key }}').submit();">delete</a>)
+        </form>
+    </li>
+{% end for %}
+</ul>
+{% end if %}
+
+{% include ../footer.html %}

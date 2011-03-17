@@ -1,5 +1,9 @@
 {% include header.html %}
 
+<p>To edit the content pages, go <a href="/admin/pages">here</a>.</p>
+
+<h3>Charts</h3>
+
 {% for c in charts %}
 {{ modules.SurveyPie(*c) }}
 {% end %}
@@ -10,7 +14,6 @@
 <a href="/admin/user/{{ a.key }}">{{ a.name }}</a>
 </div>
 {% end %}
-
 
 
 {% include footer.html %}

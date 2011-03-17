@@ -65,6 +65,10 @@ h1 {
     text-shadow: 1px 2px 1px #1a2f3a;
 }
 
+    h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover {
+        text-decoration: none;
+    }
+
 p.header-subtitle {
     font-size: 20px;
     color: #FFF;
@@ -163,15 +167,25 @@ ul.form-list li.form-entry .input {
     padding-left: 20px;
 }
 
-input.text {
+input.text, textarea.text {
     background: #FFF;
     border: none;
     padding: 0 5px;
     color: #1a2f3a;
     border-radius: 5px;
+}
+
+input.text {
     line-height: 32px;
     font-family: "Copse", "Verdana", sans-serif;
     font-size: 22px;
+}
+
+textarea.text {
+    font-family: "Courier", mono;
+    padding: 10px 15px;
+    line-height: 18px;
+    font-size: 16px;
 }
 
 input.submit {
@@ -192,6 +206,14 @@ input.submit {
     -moz-box-shadow: 1px 1px 1px #1a2f3a;
 }
 
+input.submit.inline {
+    display: inline-block;
+    margin: 0 0 0 10px;
+    font-size: 18px;
+    line-height: 24px;
+    width: 100px;
+}
+
 .content p {
     margin: 12px;
     line-height: 28px;
@@ -206,4 +228,16 @@ input.submit {
     border-bottom: 1px solid #557a8e;
     font-size: 18px;
     text-align: center;
+}
+
+.error {
+    width: 300px;
+    padding: 10px;
+    margin: 0 auto 15px;
+    background: #881111;
+    color: #FFFFFF;
+    border: 2px solid #FFF;
+    text-shadow: 1px 1px 1px #330000;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
 }

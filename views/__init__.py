@@ -12,7 +12,7 @@ import auth
 import index
 import survey
 import admin
-
+import page
 
 # must come last, after all views are imported.
 routes = route.get_routes()

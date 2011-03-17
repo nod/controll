@@ -59,8 +59,7 @@ class SurveyResponse(Model):
 
 
 class Page(Model):
-    key = Field()
-    contents = Field()
-    tags = Field()
-
-
+    key = Field(str)
+    title = Field(unicode)
+    content = Field(unicode)
+    tags = Field(list)

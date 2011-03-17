@@ -1,0 +1,36 @@
+{% include ../header.html %}
+
+<h3>Edit Page</h3>
+{% if message %}
+<p class="message">
+    {% if message == "saved" %}
+        Your page has been saved.
+    {% end if %}
+</p>
+{% end if %}
+<form action="/admin/page/{{ page.key }}" method="POST">
+{{ xsrf_form_html() }}
+
+<p>
+    <b>Title: </b>
+    <input type="text" name="title" class="text" value="{{ page.title }}"/>
+</p>
+<!--<p><b>Key:</b> {{ page.key }}</p>-->
+
+<p>
+    <b>Content:</b> (use <a target="_new" href="http://daringfireball.net/projects/markdown/basics">markdown syntax</a>)<br/>
+    <textarea cols="40" rows="6" name="content" class="text indent">
+        {{ page.content }}
+    </textarea>
+</p>
+
+<p>
+    <b>Tags:</b> 
+    <input type="text" class="text" name="tags" {% if page.tags %}value="{{ ', '.join(page.tags) }}"{% end if %}/>
+</p>
+<p><input type="submit" class="submit" value="Save"/></p>
+</form>
+
+<p><a href="/admin/pages">&laquo; back to page list</a><p>
+
+{% include ../footer.html %}
