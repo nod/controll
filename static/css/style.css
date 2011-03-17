@@ -241,3 +241,16 @@ input.submit.inline {
     border-radius: 5px;
     -moz-border-radius: 5px;
 }
+
+.message {
+    width: 300px;
+    padding: 10px;   
+    margin: 0 auto 15px;
+    background: #664411;
+    color: #FFFFFF;  
+    border: 2px solid #FFF;
+    text-shadow: 1px 1px 1px #221100;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+}
+

@@ -67,7 +67,7 @@ class AdminPageHandler(BaseHandler):
         page.title = title
         page.tags = tags
         page.save()
-        self.redirect(self.request.uri+"?message=saved")
+        self.redirect("/admin/pages?message=saved")
 
 @route("/admin/page/([a-z0-9\-_]+)/delete", name="admin-page-delete")
 class AdminPageHandler(BaseHandler):

@@ -1,13 +1,6 @@
 {% include ../header.html %}
 
 <h3>Edit Page</h3>
-{% if message %}
-<p class="message">
-    {% if message == "saved" %}
-        Your page has been saved.
-    {% end if %}
-</p>
-{% end if %}
 <form action="/admin/page/{{ page.key }}" method="POST">
 {{ xsrf_form_html() }}
 
