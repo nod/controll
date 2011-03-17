@@ -7,7 +7,7 @@ class SurveyPie(UIModule):
         key = 'answers.%s'%answer
 
         grouped = models.SurveyResponse.group(
-            key = { key : 1 },
+            key = { key : 1, 'surveykey' : surveykey },
             condition =  { },
             reduce = 'function(obj,prev) { prev.count += 1; }',
             initial =  { 'count': 0 },
