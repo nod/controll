@@ -1,21 +1,18 @@
 import tornado.web
 
-from . import route, BaseHandler, models
+from . import route, BaseHandler, models, requires_admin
 
 import json
+
+
+
 
 @route('/admin/?', name="admin")
 class Admin(BaseHandler):
 
     @tornado.web.authenticated
+    @requires_admin
     def get(self):
-        admins = [
-            'twit:nod', 'twit:joshmarshall',
-            'twit:bradevans137',
-            ]
-        if self.current_user.key not in admins:
-            self.render('oops.html', txt='bad dog. no donut.')
-            return
 
         # we'll get this cursor once, so just pull it all into memory
         attendees_ = models.User.find()
@@ -39,7 +36,7 @@ class Admin(BaseHandler):
 
 
 @route('/admin/user/([:a-z0-9\-_]+)', name="admin-user")
-class Login(BaseHandler):
+class UserAdmin(BaseHandler):
 
     def get(self, userkey):
 

@@ -2,6 +2,8 @@ from os import path
 from tornado.web import _O
 
 settings_ = dict(
+    admins = [ 'twit:nod', 'twit:joshmarshall', 'twit:bradevans137', ],
+
     debug = False,
     debug_pdb = False,
 
@@ -23,11 +25,10 @@ settings_ = dict(
 
     )
 # pull in our local overrides
-if 1:
+try:
     from settings_local import settings_ as settings_local
     settings_.update(settings_local)
-
-# except ImportError: pass
+except ImportError: pass
 
 # lastly, create our settings object
 settings = _O(settings_)

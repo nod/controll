@@ -3,6 +3,18 @@ from pymongo.objectid import ObjectId
 
 from . import models
 
+
+def requires_admin(f):
+    def new_f(self, *a, **kwa):
+        admin_list = self.application.settings.get('admins', tuple())
+        if self.current_user.key not in admin_list:
+            print self.current_user.key , admin_list, self
+            self.oops('not allowed dude')
+            return
+        return f(self, *a, **kwa)
+    return new_f
+
+
 import tornado.web
 class BaseHandler(tornado.web.RequestHandler):
 
@@ -48,10 +60,12 @@ class BaseHandler(tornado.web.RequestHandler):
             import pdb
             pdb.post_mortem()
 
+    def oops(self, msg):
+        self.render('oops.html', oopsmsg=msg)
+
     def get_error_html(self, status_code, **kwargs):
-        return self.render_string(
-            'oops.html',
-            txt="Something bad has happened. Perhaps refreshing will fix it?",
+        return self.oops(
+            "Something bad has happened. Perhaps refreshing will fix it?",
             )
 
 

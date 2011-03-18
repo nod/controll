@@ -5,7 +5,7 @@ import sys
 import os.path
 sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
 import models
-from base import BaseHandler
+from base import BaseHandler, requires_admin
 
 import user
 import auth
